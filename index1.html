@@ -26,20 +26,21 @@
     </head>
     <body>
         <div class= "header">
-            <img src ="Images/logo.jpeg" alt="Logo">
             <b>ACM-W, IIT Mandi</b>
         </div>
         <nav class= "navbar">
             <div class="nav-btn">
                 <i class="fa fa-bars" aria-hidden="true"></i>
                 <i class="fa fa-times" aria-hidden="true"></i>
+                <img src ="Images/Logo.png" alt="Logo">
             </div>
             <ul>
-                <li><a href="web.html#home">HOME</a></li>
-                <li><a href="web.html#initiatives">INITIATIVES</a></li>
-                <li><a href="web.html#events">EVENTS</a></li>
-                <li><a href="web.html#team">TEAM</a></li>
-                <li><a href="web.html#contacts">CONTACTS</a></li>
+                <img src ="Images/Logo.png" alt="Logo">
+                <li><a href="index1.html#home">HOME</a></li>
+                <li><a href="index1.html#initiatives">INITIATIVES</a></li>
+                <li><a href="index1.html#events">EVENTS</a></li>
+                <li><a href="index1.html#team">TEAM</a></li>
+                <li><a href="index1.html#contacts">CONTACTS</a></li>
             </ul>
         </nav>
         <div class="Home" id="home">
@@ -63,5 +64,65 @@
                     Nam libero justo laoreet sit amet cursus sit amet. Odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Duis at tellus at urna condimentum mattis pellentesque. Elementum sagittis vitae et leo duis ut diam quam nulla. Arcu dui vivamus arcu felis. Tortor at auctor urna nunc id cursus metus aliquam eleifend. Ultricies mi quis hendrerit dolor magna eget est. Ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla. Nec dui nunc mattis enim ut tellus elementum. Diam quis enim lobortis scelerisque fermentum dui faucibus in. Magna fermentum iaculis eu non diam. Orci a scelerisque purus semper eget duis at.
             </p>
         </div>
+        <br>
+        <div class="events" id="events">
+            <div class="slideshow">
+                <div class="Slide fade">
+                    <img src="Images/Image1.jpg">
+                    <div class="Caption">Caption 1</div>
+                </div>
+                <div class="Slide fade">
+                    <img src="Images/Image2.jpg">
+                    <div class="Caption">Caption 2</div>
+                </div>
+                <div class="Slide fade">
+                    <img src="Images/Image3.jpg">
+                    <div class="Caption">Caption 3</div>
+                </div>
+    
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>    
+
+            <div class="Dots">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+            
+        </div>
+        <script>
+        'use strict';
+        var slideIndex = 1;
+        showSlides();
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("Slide");
+            var dots = document.getElementsByClassName("dot");
+            if (n==undefined){n = ++slideIndex}
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            
+            setTimeout(showSlides, 5000); 
+        }
+
+        </script>
     </body>
 </html>
